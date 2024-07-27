@@ -14,6 +14,10 @@
         dest: repo.json
       ignore_errors: yes
 
+    - name: print 'os_family'
+      ansible.builtin.debug:
+        msg: This is {{ ansible_os_family }} server
+
     - name: print OS details only if it is rhel
       command: cat /etc/os-release
       when: ansible_facts['os_family'] == "ubuntu"
