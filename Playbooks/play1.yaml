@@ -20,5 +20,10 @@
 
     - name: print OS details only if it is rhel
       command: cat /etc/os-release
+      register: os-details
       when: ansible_os_family == "Debian"
+
+    - name: print os-details
+      ansible.builtin.debug:
+        msg: "{{ os-details }}"
       
