@@ -26,7 +26,7 @@
     - name: print selinux status only when selinux disabled
       ansible.builtin.command: getenforce
       when: ansible_selinux_status == "Enforcing"
-      ignore_errors:
+      ignore_errors: yes
       
 
     - name: print os-details
