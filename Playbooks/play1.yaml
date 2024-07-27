@@ -6,5 +6,8 @@
       file: 
         name: repo.json
         state: touch
-        content: 
-          - "remote_url": "https://github.com/ansible-test"
+    - name: enter some content in json file
+      copy:
+        content: '"remote_url: https://github.com/adityasai344/ansible-project.git"'
+        dest: repo.json
+        
