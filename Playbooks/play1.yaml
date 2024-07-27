@@ -1,0 +1,10 @@
+---
+- name:  created files 
+  hosts: localhost
+  tasks: 
+    - name: create a file on localhost
+      file: 
+        name: repo.json
+        state: touch
+        content: 
+          - "remote_url": "https://github.com/ansible-test"
