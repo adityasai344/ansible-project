@@ -22,6 +22,11 @@
       command: cat /etc/os-release
       when: ansible_os_family == "Debian"
       register: osrelease
+
+    - name: print selinux status only when selinux disabled
+      ansible.builtin.command: getenforce
+      when: ansible_selinux_status == "Enforcing"
+      ignore_errors:
       
 
     - name: print os-details
