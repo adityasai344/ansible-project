@@ -1,6 +1,7 @@
 ---
 - name:  created files 
   hosts: localhost
+  gather_facts: yes
   tasks: 
     - name: create a file on localhost
       file: 
@@ -10,6 +11,10 @@
     - name: enter some content in json file
       copy:
         content: '"remote_url: https://github.com/adityasai344/ansible-project.git"'
-        des: repo.json
+        dest: repo.json
       ignore_errors: yes
+
+    - name: print OS details only if it is rhel
+      command: cat /etc/os-release
+      when: ansible_facts['os_family'] == "RHEL"
         
