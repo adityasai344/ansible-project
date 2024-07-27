@@ -25,5 +25,5 @@
 
     - name: print os-details
       ansible.builtin.debug:
-        msg: "{{ os-details }}"
+        var: os-details
       
